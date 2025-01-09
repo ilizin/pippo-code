@@ -7,10 +7,9 @@ This repository also serves as a learning resource for me and for anyone who is 
 
 ## Description
 
-Each programming problem is described into a markdown:
-
 * [Binary gap](./src/site/BinaryGap.md)
 * [Missing integer](./src/site/MissingInteger.md)
+* [Max counters](./src/site/MaxCounters.md)
 
 ## Installation
 
