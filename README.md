@@ -10,6 +10,8 @@ This repository also serves as a learning resource for me and for anyone who is 
 * [Binary gap](./src/site/BinaryGap.md)
 * [Missing integer](./src/site/MissingInteger.md)
 * [Max counters](./src/site/MaxCounters.md)
+* [Max slice sum](./src/site/MaxSliceSum.md)
+* [Max double slice sum](./src/site/MaxDoubleSliceSum.md)
 
 ## Installation
 
