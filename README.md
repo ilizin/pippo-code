@@ -17,7 +17,14 @@ This repository also serves as a learning resource for me and for anyone who is 
 
 Make sure you've installed:
 
-//TODO
+* The JDK (Java development kit), any version is fine, this repo is focused on problem solving and advanced Java functionality are not necessary. 
+```
+ilizin:~$ java -version
+openjdk version "17" 2021-09-14
+OpenJDK Runtime Environment (build 17+35-2724)
+OpenJDK 64-Bit Server VM (build 17+35-2724, mixed mode, sharing)
+ilizin:~$ 
+```
 
 ## Usage
 
