@@ -41,4 +41,4 @@ GitHub: [ilizin](https://github.com/ilizin)
 
 ## Acknowledgments
 
-Thank you to Codility for providing a platform to practice coding problems and keep my problem-solving skills alive.
+Thank you to Codility for providing a platform to practice coding problems.
