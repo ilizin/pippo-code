@@ -17,13 +17,25 @@ This repository also serves as a learning resource for me and for anyone who is 
 
 Make sure you've installed:
 
-* The JDK (Java development kit), any version is fine, this repo is focused on problem solving and advanced Java functionality are not necessary. 
+* The JDK (Java development kit), any version is fine, this repository is focused on problem solving and advanced Java functionality are not necessary 
 ```
 ilizin:~$ java -version
 openjdk version "17" 2021-09-14
 OpenJDK Runtime Environment (build 17+35-2724)
 OpenJDK 64-Bit Server VM (build 17+35-2724, mixed mode, sharing)
 ilizin:~$ 
+```
+
+* Maven
+```
+ilizin:~$ mvn -version
+Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
+Maven home: /opt/apache-maven-3.9.9
+Java version: 17, vendor: Oracle Corporation, runtime: /opt/jdk-17
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "6.8.0-31-generic", arch: "amd64", family: "unix"
+ilizin:~$ 
+
 ```
 
 ## Usage
