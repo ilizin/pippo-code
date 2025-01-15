@@ -17,7 +17,7 @@ This repository also serves as a learning resource for me and for anyone who is 
 
 Make sure you've installed:
 
-* The JDK (Java development kit), any version is fine, this repository is focused on problem solving and advanced Java functionality are not necessary 
+* The JDK (Java development kit), any version is fine, this repository is focused on problem solving and advanced Java functionalities are not necessary. 
 ```
 ilizin:~$ java -version
 openjdk version "17" 2021-09-14
@@ -35,14 +35,49 @@ Java version: 17, vendor: Oracle Corporation, runtime: /opt/jdk-17
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "6.8.0-31-generic", arch: "amd64", family: "unix"
 ilizin:~$ 
-
 ```
 
 ## Usage
 
-Each problem solution is stored in its own class within the `me.ilizin.coding` package. 
+* Clone the repository.
+```
+git clone git@github.com:ilizin/pippo-code.git
+```
+* Open the project with your favourite IDE.
 
-//TODO
+* Choose a problem, run its junit, debug and understand my solution. You can easily add a new test case because all the junits are parametrized, for example: 
+```java
+ @Parameterized.Parameters(name = "{index}: values = {2}, expectedSmallestPositiveMissingInteger = {1}")
+ public static Object[][] provideTestData() {
+     return new Object[][] {
+             { new int[] {1, 3, 6, 4, 1, 2}, 5, "[1, 3, 6, 4, 1, 2]" },
+             { new int[] {1, 2, 3}, 4, "[1, 2, 3]" },
+             { new int[] {-1, -3}, 1, "[-1, -3]" },
+     };
+ }
+```
+
+## Structure
+
+Each problem solution is stored in its own class within the `me.ilizin.coding` package, has a junit and a markdown containing the problem description.
+
+```
+/
+└── src
+    ├── main
+    │   └── java
+    │       └── me.ilizin.coding
+    │           ├── BinaryGap
+    │           └── ...
+    ├── site
+    │   ├── BinaryGap
+    │   └── ...
+    └── test
+        └── java
+            └── me.ilizin.coding
+                ├── BinaryGap
+                └── ...
+```
 
 ## Contributing
 

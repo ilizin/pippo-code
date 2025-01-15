@@ -9,7 +9,7 @@ import org.junit.runners.Parameterized;
 public class MaxSliceSumTest {
 
     @Parameterized.Parameters(name = "{index}: values = {0}, expectedMaxSliceSum = {1}")
-    public static Object[][] primeNumbers() {
+    public static Object[][] provideTestData() {
         return new Object[][] {
                 { new int[] { 3, 2, -6, 4, 0 }, 5},
                 { new int[] { -1, -1, -1, -1, -1 }, -1},

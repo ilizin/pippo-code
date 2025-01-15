@@ -9,7 +9,7 @@ import org.junit.runners.Parameterized;
 public class BinaryGapTest {
 
     @Parameterized.Parameters(name = "{index}: number = {0}, expectedLongestBinaryGap = {1}")
-    public static Object[][] primeNumbers() {
+    public static Object[][] provideTestData() {
         return new Object[][] {
                 { 4, 0 },
                 { 0, 0 },
