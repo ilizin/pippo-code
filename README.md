@@ -7,11 +7,15 @@ This repository also serves as a learning resource for me and for anyone who is 
 
 ## Description
 
+Follow these markdowns for each problem description
+
 * [Binary gap](./src/site/BinaryGap.md)
 * [Missing integer](./src/site/MissingInteger.md)
 * [Max counters](./src/site/MaxCounters.md)
 * [Max slice sum](./src/site/MaxSliceSum.md)
 * [Max double slice sum](./src/site/MaxDoubleSliceSum.md)
+
+In some cases I provide more than one solution, the easy one and the smarter, and the `@Silly` annotation marks the method that implement the easy algorithm.
 
 ## Installation
 
@@ -45,7 +49,7 @@ git clone git@github.com:ilizin/pippo-code.git
 ```
 * Open the project with your favourite IDE.
 
-* Choose a problem, run its junit, debug and understand my solution. You can easily add a new test case because all the junits are parametrized, for example: 
+* Choose a problem, run its junit, debug, try to understand the solution and you can easily add a new test case as the junits are parametrized: 
 ```java
  @Parameterized.Parameters(name = "{index}: values = {2}, expectedSmallestPositiveMissingInteger = {1}")
  public static Object[][] provideTestData() {

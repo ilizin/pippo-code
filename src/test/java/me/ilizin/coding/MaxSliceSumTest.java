@@ -11,12 +11,15 @@ public class MaxSliceSumTest {
     @Parameterized.Parameters(name = "{index}: values = {0}, expectedMaxSliceSum = {1}")
     public static Object[][] provideTestData() {
         return new Object[][] {
+                { new int[] { 3, -2, 3 }, 4},
+                { new int[] { 1, 3 }, 4},
+                { new int[] { 3, 2, 1 }, 6},
                 { new int[] { 3, 2, -6, 4, 0 }, 5},
                 { new int[] { -1, -1, -1, -1, -1 }, -1},
                 { new int[] { 0, -1, -1, -1, -1 }, 0},
                 { new int[] { -1, -1, -1, -1, 10 }, 10},
                 { new int[] { -3, -1, -1 }, -1},
-                { new int[] { -5, -5, -5 , -5, 5, 5, -5, -5, -5, 5, -5}, 10},
+                { new int[] { -5, -5, -5 , -5, 5, 5, -5, -5, -5, 5, -5}, 10}
         };
     }
 
@@ -29,9 +32,9 @@ public class MaxSliceSumTest {
     }
 
     @Test
-    public void findTheSmallestPositiveMissingInteger () {
+    public void findMaxSliceSum () {
         MaxSliceSum maxSliceSum = new MaxSliceSum();
-        Assert.assertEquals(expectedMaxSliceSum, maxSliceSum.findMaxSliceSum(values));
+        Assert.assertEquals(expectedMaxSliceSum, maxSliceSum. findMaxSliceSum(values));
     }
 
 }
