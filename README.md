@@ -10,10 +10,13 @@ This repository also serves as a learning resource for me and for anyone who is 
 Follow these markdowns for each problem description
 
 * [Binary gap](./src/site/BinaryGap.md)
-* [Missing integer](./src/site/MissingInteger.md)
+* [Dominator](./src/site/Dominator.md)
 * [Max counters](./src/site/MaxCounters.md)
-* [Max slice sum](./src/site/MaxSliceSum.md)
 * [Max double slice sum](./src/site/MaxDoubleSliceSum.md)
+* [Max slice sum](./src/site/MaxSliceSum.md)
+* [Missing integer](./src/site/MissingInteger.md)
+
+
 
 In some cases I provide more than one solution, the easy one and the smarter, and the `@Silly` annotation marks the method that implement the easy algorithm.
 
