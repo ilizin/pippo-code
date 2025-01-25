@@ -36,13 +36,5 @@ public class BinaryGapTest {
     public void findTheLongestBinaryGap () {
         BinaryGap binaryGap = new BinaryGap();
         Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
-        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
     }
 }
