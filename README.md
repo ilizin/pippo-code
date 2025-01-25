@@ -5,7 +5,7 @@ The repository contains my solutions to several programming problems, each solut
 I provided comments and aimed to keep code clean and readable and always find an efficient solution in terms of computational time and memory space.
 This repository also serves as a learning resource for me and for anyone who is interested in understanding different ways to solve coding problems.
 
-## Description
+## 📘 Description
 
 Follow these markdowns for each problem description
 
@@ -16,11 +16,9 @@ Follow these markdowns for each problem description
 * [Max slice sum](./src/site/MaxSliceSum.md)
 * [Missing integer](./src/site/MissingInteger.md)
 
-
-
 In some cases I provide more than one solution, the easy one and the smarter, and the `@Silly` annotation marks the method that implement the easy algorithm.
 
-## Installation
+## 💾 Installation
 
 Make sure you've installed:
 
@@ -64,7 +62,7 @@ git clone git@github.com:ilizin/pippo-code.git
  }
 ```
 
-## Structure
+## 📂 Structure 
 
 Each problem solution is stored in its own class within the `me.ilizin.coding` package, has a junit and a markdown containing the problem description.
 
@@ -96,7 +94,7 @@ Contributions are welcome! If you have an alternative solution or an improvement
 4. Push to the branch (git push origin feature-new-solution).
 5. Open a pull request.
 
-## Contact
+## 📬 Contact
 
 GitHub: [ilizin](https://github.com/ilizin)
 
