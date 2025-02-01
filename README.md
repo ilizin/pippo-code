@@ -84,7 +84,7 @@ Each problem solution is stored in its own class within the `me.ilizin.coding` p
                 └── ...
 ```
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! If you have an alternative solution or an improvement to an existing solution, feel free to contribute. Follow these steps:
 
@@ -98,6 +98,6 @@ Contributions are welcome! If you have an alternative solution or an improvement
 
 GitHub: [ilizin](https://github.com/ilizin)
 
-## Acknowledgments
+## 🙌 Acknowledgments
 
 Thank you to Codility for providing a platform to practice coding problems.
