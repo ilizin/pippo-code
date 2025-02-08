@@ -43,12 +43,24 @@ OS name: "linux", version: "6.8.0-31-generic", arch: "amd64", family: "unix"
 ilizin:~$ 
 ```
 
-## Usage
-
 * Clone the repository.
 ```
 git clone git@github.com:ilizin/pippo-code.git
 ```
+
+* Run the `mvn clean install` in order to install the project.
+```
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.561 s
+[INFO] Finished at: 2025-02-08T16:34:36+01:00
+[INFO] ------------------------------------------------------------------------
+ilizin@ilizin:~/repos/pippo-code$ 
+```
+
+## Usage
+
 * Open the project with your favourite IDE.
 
 * Choose a problem, run its junit, debug, try to understand the solution and you can easily add a new test case as the junits are parametrized: 
