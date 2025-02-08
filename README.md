@@ -15,6 +15,7 @@ Follow these markdowns for each problem description
 * [Max double slice sum](./src/site/MaxDoubleSliceSum.md)
 * [Max slice sum](./src/site/MaxSliceSum.md)
 * [Missing integer](./src/site/MissingInteger.md)
+* [Odd occurrences in array](./src/site/OddOccurrencesInArray.md)
 
 In some cases I provide more than one solution, the easy one and the smarter, and the `@Silly` annotation marks the method that implement the easy algorithm.
 
