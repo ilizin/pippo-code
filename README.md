@@ -7,7 +7,7 @@ This repository also serves as a learning resource for me and for anyone who is 
 
 ## 📘 Description
 
-Follow these markdowns for each problem description
+Follow these markdowns for the problems description
 
 * [Binary gap](./src/site/BinaryGap.md)
 * [Dominator](./src/site/Dominator.md)
