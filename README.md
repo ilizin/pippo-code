@@ -48,8 +48,16 @@ ilizin:~$
 git clone git@github.com:ilizin/pippo-code.git
 ```
 
+* Move to the repo folder:
+```
+ilizin@ilizin:~/repos$ cd pippo-code
+ilizin@ilizin:~/repos/pippo-code$
+```
+
 * Run the `mvn clean install` in order to install the project.
 ```
+ilizin@ilizin:~/repos/pippo-code$ mvn clean install
+...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
