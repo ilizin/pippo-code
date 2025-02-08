@@ -48,7 +48,7 @@ ilizin:~$
 git clone git@github.com:ilizin/pippo-code.git
 ```
 
-* Move to the repo folder:
+* Move to the repo folder.
 ```
 ilizin@ilizin:~/repos$ cd pippo-code
 ilizin@ilizin:~/repos/pippo-code$
