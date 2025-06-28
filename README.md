@@ -5,6 +5,8 @@ The repository contains my solutions to several programming problems, each solut
 I provided comments and aimed to keep code clean and readable and always find an efficient solution in terms of computational time and memory space.
 This repository also serves as a learning resource for me and for anyone who is interested in understanding different ways to solve coding problems.
 
+Anyway *pippo* is the italian translation of the [*disney character Goofy*](https://en.wikipedia.org/wiki/Goofy)
+
 ## 📘 Description
 
 Follow these markdowns for the problems description
