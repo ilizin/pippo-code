@@ -20,7 +20,8 @@ public class BinaryGapTest {
                 { 15, 0 },
                 { 32, 0 },
                 { 1041, 5 },
-                { 561892, 3}
+                { 561892, 3},
+                { 536854529, 13} // The faster solution ends in approximately half cycles
         };
     }
 
@@ -36,5 +37,11 @@ public class BinaryGapTest {
     public void findTheLongestBinaryGap () {
         BinaryGap binaryGap = new BinaryGap();
         Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGap(number));
+    }
+
+    @Test
+    public void findTheLongestBinaryGapWithFasterExit () {
+        BinaryGap binaryGap = new BinaryGap();
+        Assert.assertEquals(expectedLongestBinaryGap, binaryGap.findTheLongestBinaryGapWithFasterExit(number));
     }
 }
