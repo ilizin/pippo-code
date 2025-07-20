@@ -13,6 +13,9 @@ public class DominatorTest {
         return new Object[][] {
                 { new int[] {3, 2, 3, 4, 3, 3, 3, -1}, 0, "[3, 2, 3, 4, 3, 3, 3, -1]" },
                 { new int[] {3}, 0, "[3]" },
+                { new int[] {3, 2, 11, 8, 9, 91, 20, 15}, -1, "[3, 2, 11, 8, 9, 91, 20, 15]" },
+                { new int[] {1, 2}, -1, "[1, 2]" },
+                { new int[] {1, 1}, 0, "[1, 1]" },
         };
     }
 
@@ -28,5 +31,11 @@ public class DominatorTest {
     public void findADominatorIndex () {
         Dominator dominator = new Dominator();
         Assert.assertEquals(expectedDominatorIndex, dominator.findADominatorIndex(values));
+    }
+
+    @Test
+    public void findADominatorIndexFaster () {
+        Dominator dominator = new Dominator();
+        Assert.assertEquals(expectedDominatorIndex, dominator.findADominatorIndexFaster(values));
     }
 }
