@@ -8,36 +8,19 @@ public class BinaryGap {
 
     @Silly
     public int findTheLongestBinaryGap(int value) {
-
-        int maxBinaryGapLength = 0;
-        int currentBinaryGapLength = 0;
-        boolean hasOne = false;
-        while (value != 0) {
-            /* Look at how to convert a positive number from decimal to binary:
-               https://www.cuemath.com/numbers/decimal-to-binary/ */
-            int remainder = value % 2;
-            value = value / 2;
-            if (remainder == 1) {
-                hasOne = true;
-                if (currentBinaryGapLength > maxBinaryGapLength) {
-                    maxBinaryGapLength = currentBinaryGapLength;
-                }
-                currentBinaryGapLength = 0;
-            } else if (hasOne) {
-                currentBinaryGapLength++;
-            }
-        }
-        return maxBinaryGapLength;
+        return findTheLongestBinaryGapCommon(value, (param1, param2, parma3) -> param1 != 0);
     }
 
-    //TODO copied from the findTheLongestBinaryGap but with a different loop exit condition, generalize some day (maybe) jeje
     public int findTheLongestBinaryGapWithFasterExit(int value) {
+        return findTheLongestBinaryGapCommon(value, (param1, param2, parma3) -> param1 != 0 && (param2 < parma3));
+    }
 
+    private int findTheLongestBinaryGapCommon(int value, ExitConditionTester exitConditionTester) {
         int maxBinaryGapLength = 0;
         int currentBinaryGapLength = 0;
         boolean hasOne = false;
         int binaryLength = log2(value) + 1;
-        while (value != 0 && (maxBinaryGapLength  < binaryLength + currentBinaryGapLength + 2)) {
+        while (exitConditionTester.test(value, maxBinaryGapLength, binaryLength + currentBinaryGapLength + 2)) {
             /* Look at how to convert a positive number from decimal to binary:
                https://www.cuemath.com/numbers/decimal-to-binary/ */
             int remainder = value % 2;
@@ -54,6 +37,11 @@ public class BinaryGap {
             binaryLength--;
         }
         return maxBinaryGapLength;
+    }
+
+    @FunctionalInterface
+    private interface ExitConditionTester {
+        boolean test(int param1, int param2, int param3);
     }
 
     private int log2(int N) {
