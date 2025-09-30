@@ -73,7 +73,7 @@ ilizin@ilizin:~/repos/pippo-code$
 
 * Open the project with your favourite IDE.
 
-* Choose a problem, run its junit, debug, try to understand the solution and you can easily add a new test case as the junits are parametrized: 
+* Choose a problem, run the junit, debug and try to understand the solution, you can easily add a new test case as the junits are parametrized: 
 ```java
  @Parameterized.Parameters(name = "{index}: values = {2}, expectedSmallestPositiveMissingInteger = {1}")
  public static Object[][] provideTestData() {
