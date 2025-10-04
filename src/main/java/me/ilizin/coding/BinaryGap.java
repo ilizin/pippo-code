@@ -45,8 +45,8 @@ public class BinaryGap {
         boolean test(int param1, int param2, int param3);
     }
 
-    private int log2(int N) {
+    private int log2(int value) {
         // calculate log2 N indirectly using log() method
-        return (int)(Math.log(N) / Math.log(2));
+        return (int)(Math.log(value) / Math.log(2));
     }
 }
