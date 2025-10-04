@@ -8,6 +8,7 @@ public class BinaryGap {
 
     @Silly
     public int findTheLongestBinaryGap(int value) {
+        // If value is 0 we reached the most significant bit (the leftmost one)
         return findTheLongestBinaryGapCommon(value, (param1, param2, parma3) -> param1 != 0);
     }
 
