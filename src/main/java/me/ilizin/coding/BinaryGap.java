@@ -8,11 +8,16 @@ public class BinaryGap {
 
     @Silly
     public int findTheLongestBinaryGap(int value) {
-        // If value is 0 we reached the most significant bit (the leftmost one)
+        /* We stop the loop if the following is false:
+           1) value != 0
+                If value is 0 we reached the most significant bit (the leftmost one) */
         return findTheLongestBinaryGapCommon(value, (param1, param2, parma3) -> param1 != 0);
     }
 
     public int findTheLongestBinaryGapWithFasterExit(int value) {
+        /* We stop the loop if one of the following is false:
+           1) value != 0
+           2) maxBinaryGapLength < binaryLength + currentBinaryGapLength - 1 */
         return findTheLongestBinaryGapCommon(value, (param1, param2, parma3) -> param1 != 0 && (param2 < parma3));
     }
 
@@ -21,7 +26,7 @@ public class BinaryGap {
         int currentBinaryGapLength = 0;
         boolean hasOne = false;
         int binaryLength = log2(value) + 1;
-        while (exitConditionTester.test(value, maxBinaryGapLength, binaryLength + currentBinaryGapLength + 2)) {
+        while (exitConditionTester.test(value, maxBinaryGapLength, binaryLength + currentBinaryGapLength - 1)) {
             /* Look at how to convert a positive number from decimal to binary:
                https://www.cuemath.com/numbers/decimal-to-binary/ */
             int remainder = value % 2;
