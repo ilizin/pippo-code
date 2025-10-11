@@ -10,7 +10,9 @@ public class MaxSliceSum {
         int sliceSum = 0;
         while (i < values.length) {
             sliceSum += values[i];
-            if (sliceSum < 0 || values[i] > sliceSum) {
+            if (values[i] > sliceSum) {
+                /* If the current value is greater than the current slice we start counting a new current slice
+                   from the current value to have the chance to find a new max slice  */
                 sliceSum = values[i];
             }
             if (sliceSum > maxSliceSum) {
