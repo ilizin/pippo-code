@@ -34,7 +34,12 @@ public class MaxSliceSumTest {
     @Test
     public void findMaxSliceSum () {
         MaxSliceSum maxSliceSum = new MaxSliceSum();
-        Assert.assertEquals(expectedMaxSliceSum, maxSliceSum. findMaxSliceSum(values));
+        Assert.assertEquals(expectedMaxSliceSum, maxSliceSum.findMaxSliceSum(values));
     }
 
+    @Test
+    public void findMaxSliceSumCompleteComparison () {
+        MaxSliceSum maxSliceSum = new MaxSliceSum();
+        Assert.assertEquals(expectedMaxSliceSum, maxSliceSum.findMaxSliceSumCompleteComparison(values));
+    }
 }
