@@ -41,6 +41,9 @@ public class Dominator {
 
         int i = 0;
         while(i < values.length / 2) {
+            /* Because of the values are ordered, the equal values are consecutive, so if the value at the current position
+               is equals to the one at the position (current + length / 2), the number of the elements between
+               [current, current + length / 2]  is greater than half of the total number of elements */
             if (orderedValues[i] == orderedValues[i + (orderedValues.length / 2)]) {
                 for (int j = 0; j < orderedValues.length; j++) {
                     if (values[j] == orderedValues[i]) {
