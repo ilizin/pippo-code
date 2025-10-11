@@ -33,6 +33,8 @@ public class MaxCounters {
 
         for (int operation : operations) {
             if (operation == numberOfCounters + 1) {
+                /* We don't update all the elements to the max value, so avoiding this loop improves the performance.
+                   We just save the max value and update only once with a loop at the end. */
                 max = maxCounter;
             } else {
                 if (counters[operation - 1] < max) {
@@ -52,5 +54,4 @@ public class MaxCounters {
         }
         return counters;
     }
-
 }
