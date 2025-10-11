@@ -32,4 +32,10 @@ public class MaxCountersTest {
         MaxCounters maxCounters = new MaxCounters();
         Assert.assertArrayEquals(expectedCounters, maxCounters.calculateCounters(numberOfCounters, operations));
     }
+
+    @Test
+    public void calculateCountersFaster () {
+        MaxCounters maxCounters = new MaxCounters();
+        Assert.assertArrayEquals(expectedCounters, maxCounters.calculateCountersFaster(numberOfCounters, operations));
+    }
 }
