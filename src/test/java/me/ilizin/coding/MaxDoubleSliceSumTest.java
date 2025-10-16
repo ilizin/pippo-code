@@ -11,7 +11,8 @@ public class MaxDoubleSliceSumTest {
     @Parameterized.Parameters(name = "{index}: numberOfCounters = {0}, operations = {3}")
     public static Object[][] provideTestData() {
         return new Object[][] {
-                { new int[] {3, 2, 6, -1, 4, 5, -1, 2}, 17, "[3, 2, 6, -1, 4, 5, -1, 2]" }
+                { new int[] {3, 2, 6, -1, 4, 5, -1, 2}, 17, "[3, 2, 6, -1, 4, 5, -1, 2]" },
+                { new int[] {3, 2, 6, 1 }, 6, "[3, 2, 6, 1]" }
         };
     }
 
