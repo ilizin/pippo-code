@@ -2,30 +2,39 @@ package me.ilizin.coding;
 
 public class MaxDoubleSliceSum {
 
-    public int findMaxDoubleSliceSum(int[] a) {
+    public int findMaxDoubleSliceSum(int[] values) {
 
         int max = 0;
         int sum = 0;
-        for (int k = 3; k < a.length; k++) {
-            sum += a[k - 1];
+        int maxIndexK = 0;
+        for (int k = 3; k < values.length; k++) {
+            sum += values[k - 1];
+            if (k == 3) {
+                max = sum;
+                maxIndexK = k;
+            }
             if (sum > max) {
                 max = sum;
+                maxIndexK = k;
             }
         }
-        for (int j = 2; j < a.length - 1; j++) {
-            sum += a[j - 1];
-            sum -= a[j];
+        sum = max;
+        int maxIndexJ = 0;
+        for (int j = 2; j < maxIndexK; j++) {
+            sum += values[j - 1];
+            sum -= values[j];
             if (sum > max) {
                 max = sum;
+                maxIndexJ = j;
             }
         }
-        for (int i = 1; i < a.length - 2; i++) {
-            sum -= a[i];
+        sum = max;
+        for (int i = 1; i < maxIndexJ; i++) {
+            sum -= values[i];
             if (sum > max) {
                 max = sum;
             }
         }
         return max;
     }
-
 }
