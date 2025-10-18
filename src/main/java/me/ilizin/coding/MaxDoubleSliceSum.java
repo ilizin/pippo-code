@@ -9,10 +9,6 @@ public class MaxDoubleSliceSum {
         int maxIndexK = 0;
         for (int k = 3; k < values.length; k++) {
             sum += values[k - 1];
-            if (k == 3) {
-                max = sum;
-                maxIndexK = k;
-            }
             if (sum > max) {
                 max = sum;
                 maxIndexK = k;
