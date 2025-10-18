@@ -16,16 +16,22 @@ public class MaxDoubleSliceSum {
         }
         sum = max;
         int maxIndexJ = 0;
-        for (int j = 2; j < maxIndexK; j++) {
-            sum += values[j - 1];
-            sum -= values[j];
-            if (sum > max) {
-                max = sum;
-                maxIndexJ = j;
+        for (int j = 2; j < Math.max(maxIndexK, values.length); j++) {
+            if (j != Math.min(maxIndexK, values.length)) {
+                if (j - 1 != maxIndexK) {
+                    sum += values[j - 1];
+                    sum -= values[j];
+                } else {
+                    sum += values[j - 2];
+                }
+                if (sum > max) {
+                    max = sum;
+                    maxIndexJ = j;
+                }
             }
         }
         sum = max;
-        for (int i = 1; i < maxIndexJ; i++) {
+        for (int i = 1; i < Math.max(maxIndexJ, maxIndexK); i++) {
             sum -= values[i];
             if (sum > max) {
                 max = sum;
