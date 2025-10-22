@@ -6,7 +6,7 @@ public class MaxDoubleSliceSum {
 
         int max = 0;
         int sum = 0;
-        int maxIndexK = 0;
+        int maxIndexK = 2;
         for (int k = 3; k < values.length; k++) {
             sum += values[k - 1];
             if (sum > max) {
@@ -14,13 +14,16 @@ public class MaxDoubleSliceSum {
                 maxIndexK = k;
             }
         }
+        boolean inv = false;
         sum = max;
-        int maxIndexJ = 0;
+        int maxIndexJ = 1;
         for (int j = 2; j < Math.max(maxIndexK, values.length); j++) {
             if (j != Math.min(maxIndexK, values.length)) {
                 if (j - 1 != maxIndexK) {
                     sum += values[j - 1];
-                    sum -= values[j];
+                    if (!inv) {
+                        sum -= values[j];
+                    }
                 } else {
                     sum += values[j - 2];
                 }
@@ -28,13 +31,17 @@ public class MaxDoubleSliceSum {
                     max = sum;
                     maxIndexJ = j;
                 }
+            } else {
+                inv = true;
             }
         }
         sum = max;
         for (int i = 1; i < Math.max(maxIndexJ, maxIndexK); i++) {
-            sum -= values[i];
-            if (sum > max) {
-                max = sum;
+            if (i != Math.min(maxIndexJ, maxIndexK)) {
+                sum -= values[i];
+                if (sum > max) {
+                    max = sum;
+                }
             }
         }
         return max;
