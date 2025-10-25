@@ -1,5 +1,7 @@
 # MaxDoubleSliceSum
 
+Find the maximal sum of any double slice.
+
 ## Problem description
 
 A non-empty array A consisting of N integers is given.

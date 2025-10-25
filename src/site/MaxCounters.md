@@ -1,5 +1,7 @@
 # MaxCounters
 
+Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum.
+
 ## Problem description
 
 You are given N counters, initially set to 0, and you have two possible operations on them:

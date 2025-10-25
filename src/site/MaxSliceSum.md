@@ -1,5 +1,7 @@
 # MaxSliceSum
 
+Find a maximum sum of a compact subsequence of array elements.
+
 ## Problem description
 
 A non-empty array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P ≤ Q < N, is called a slice of array A. 

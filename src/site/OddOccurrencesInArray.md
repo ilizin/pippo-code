@@ -1,5 +1,7 @@
 # OddOccurrencesInArray
 
+Find value that occurs in odd number of elements.
+
 ## Problem description
 
 A non-empty array A consisting of N integers is given. The array contains an odd number of elements, and each element of the array can be 

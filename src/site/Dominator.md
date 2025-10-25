@@ -1,5 +1,9 @@
 # Dominator
 
+Find an index of an array such that its value occurs at more than half of indices in the array.
+
+## Problem description
+
 An array A consisting of N integers is given. The dominator of array A is the value that occurs in more than half of the elements of A.
 
 For example, consider array A such that
