@@ -3,6 +3,8 @@ package me.ilizin.coding;
 import me.ilizin.coding.annotations.Silly;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Dominator {
 
@@ -27,7 +29,6 @@ public class Dominator {
                 }
             }
         }
-
         return -1;
     }
 
@@ -52,6 +53,23 @@ public class Dominator {
                 }
             } else {
                 i++;
+            }
+        }
+        return -1;
+    }
+
+    public int findADominatorIndexFasterWithoutOrdering(int[] values) {
+        if (values.length == 1) {
+            return 0;
+        }
+
+        Map<Integer, Integer> memory = new HashMap<>();
+        for (int i = 0; i < values.length; i++) {
+            int value = values[i];
+            Integer occurrences = memory.getOrDefault(value, 0);
+            memory.put(value, occurrences + 1);
+            if (occurrences + 1 > values.length / 2) {
+                return i;
             }
         }
         return -1;
