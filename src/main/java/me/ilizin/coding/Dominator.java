@@ -62,7 +62,7 @@ public class Dominator {
         if (values.length == 1) {
             return 0;
         }
-
+        // Instead of ordering we will use a Map for tracking the number of the values occurrences
         Map<Integer, Integer> memory = new HashMap<>();
         for (int i = 0; i < values.length; i++) {
             int value = values[i];
