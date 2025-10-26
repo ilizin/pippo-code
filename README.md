@@ -13,6 +13,7 @@ Follow these markdowns for the problems description
 
 * [Binary gap](./src/site/BinaryGap.md)
 * [Dominator](./src/site/Dominator.md)
+* [EquiLeader](./src/site/EquiLeader.md)
 * [Max counters](./src/site/MaxCounters.md)
 * [Max double slice sum](./src/site/MaxDoubleSliceSum.md)
 * [Max slice sum](./src/site/MaxSliceSum.md)
