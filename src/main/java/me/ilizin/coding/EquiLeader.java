@@ -7,7 +7,7 @@ public class EquiLeader {
 
     public int findNumberOfEquiLeader(int[] values) {
         if (values.length == 1) {
-            return 1;
+            return 0;
         }
         int[] dominatorsLeftToRight = new int[values.length];
         int[] dominatorsRightToLeft = new int[values.length];
@@ -50,6 +50,12 @@ public class EquiLeader {
             }
         }
 
-        return 0;
+        int equiLeaderCount = 0;
+        for (int i = 0; i < dominatorsLeftToRight.length - 1; i++) {
+            if (dominatorsLeftToRight[i] == dominatorsRightToLeft[i + 1]) {
+                equiLeaderCount++;
+            }
+        }
+        return equiLeaderCount;
     }
 }
