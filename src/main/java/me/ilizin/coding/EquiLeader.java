@@ -25,7 +25,7 @@ public class EquiLeader {
                 dominator = value;
             } else if (dominatorOccurrences > (i + 1) / 2) {
                 dominatorsLeftToRight[i] = dominator;
-                dominatorOccurrences++;
+                //dominatorOccurrences++;
             } else {
                 dominatorsLeftToRight[i] = -1;
             }
@@ -42,9 +42,9 @@ public class EquiLeader {
                 dominatorsRightToLeft[i] = value;
                 dominatorOccurrences = occurrences + 1;
                 dominator = value;
-            } else if (dominatorOccurrences > (i + 1) / 2) {
+            } else if (dominatorOccurrences > (values.length - i) / 2) {
                 dominatorsRightToLeft[i] = dominator;
-                dominatorOccurrences++;
+                //dominatorOccurrences++;
             } else {
                 dominatorsRightToLeft[i] = -1;
             }
@@ -52,7 +52,7 @@ public class EquiLeader {
 
         int equiLeaderCount = 0;
         for (int i = 0; i < dominatorsLeftToRight.length - 1; i++) {
-            if (dominatorsLeftToRight[i] == dominatorsRightToLeft[i + 1]) {
+            if (dominatorsLeftToRight[i] != -1 && dominatorsLeftToRight[i] == dominatorsRightToLeft[i + 1]) {
                 equiLeaderCount++;
             }
         }
