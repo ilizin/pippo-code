@@ -10,7 +10,6 @@ public class EquiLeader {
             return 0;
         }
         int[] dominatorsLeftToRight = new int[values.length];
-        int[] dominatorsRightToLeft = new int[values.length];
 
         int dominatorOccurrences = -1;
         int dominator = -1;
@@ -25,7 +24,6 @@ public class EquiLeader {
                 dominator = value;
             } else if (dominatorOccurrences > (i + 1) / 2) {
                 dominatorsLeftToRight[i] = dominator;
-                //dominatorOccurrences++;
             } else {
                 dominatorsLeftToRight[i] = -1;
             }
@@ -33,27 +31,22 @@ public class EquiLeader {
 
         dominatorOccurrences = -1;
         dominator = -1;
+        int equiLeaderCount = 0;
         memory = new HashMap<>();
-        for (int i = values.length - 1; i >= 0; i--) {
+        for (int i = values.length - 1; i >= 1; i--) {
             int value = values[i];
             Integer occurrences = memory.getOrDefault(value, 0);
             memory.put(value, occurrences + 1);
             if (occurrences + 1 > (values.length - i) / 2) {
-                dominatorsRightToLeft[i] = value;
+                if (dominatorsLeftToRight[i - 1] == value) {
+                    equiLeaderCount++;
+                }
                 dominatorOccurrences = occurrences + 1;
                 dominator = value;
             } else if (dominatorOccurrences > (values.length - i) / 2) {
-                dominatorsRightToLeft[i] = dominator;
-                //dominatorOccurrences++;
-            } else {
-                dominatorsRightToLeft[i] = -1;
-            }
-        }
-
-        int equiLeaderCount = 0;
-        for (int i = 0; i < dominatorsLeftToRight.length - 1; i++) {
-            if (dominatorsLeftToRight[i] != -1 && dominatorsLeftToRight[i] == dominatorsRightToLeft[i + 1]) {
-                equiLeaderCount++;
+                if (dominatorsLeftToRight[i - 1] == dominator) {
+                    equiLeaderCount++;
+                }
             }
         }
         return equiLeaderCount;
