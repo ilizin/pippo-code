@@ -3,13 +3,21 @@ package me.ilizin.coding;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class EquiLeader {
+
+
+
 
     public int findNumberOfEquiLeader(int[] values) {
 
         int[] dominatorsLeftToRight = new int[values.length];
         Arrays.fill(dominatorsLeftToRight, -1);
+
+        BiFunction<Integer, Integer, Integer> a = (x, y) -> (x + 1) / 2;
+        BiFunction<Integer, Integer, Integer> a2 = (x, y) -> (x - y) / 2;
 
         int dominatorOccurrences = -1;
         int dominator = -1;
@@ -18,11 +26,11 @@ public class EquiLeader {
             int value = values[i];
             Integer occurrences = memory.getOrDefault(value, 0);
             memory.put(value, occurrences + 1);
-            if (occurrences + 1 > (i + 1) / 2) {
+            if (occurrences + 1 > a.apply(i, null)) {
                 dominatorsLeftToRight[i] = value;
                 dominatorOccurrences = occurrences + 1;
                 dominator = value;
-            } else if (dominatorOccurrences > (i + 1) / 2) {
+            } else if (dominatorOccurrences > a.apply(i, null)) {
                 dominatorsLeftToRight[i] = dominator;
             }
         }
@@ -35,14 +43,16 @@ public class EquiLeader {
             int value = values[i];
             Integer occurrences = memory.getOrDefault(value, 0);
             memory.put(value, occurrences + 1);
-            if (occurrences + 1 > (values.length - i) / 2) {
+            if (occurrences + 1 > a2.apply(values.length, i)) {
+                dominatorsLeftToRight[i] = value;
                 dominatorOccurrences = occurrences + 1;
                 dominator = value;
-                if (dominatorsLeftToRight[i - 1] == value) {
+                if (dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
                     equiLeaderCount++;
                 }
-            } else if (dominatorOccurrences > (values.length - i) / 2) {
-                if (dominatorsLeftToRight[i - 1] == dominator) {
+            } else if (dominatorOccurrences > a2.apply(values.length, i)) {
+                dominatorsLeftToRight[i] = dominator;
+                if (dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
                     equiLeaderCount++;
                 }
             }
