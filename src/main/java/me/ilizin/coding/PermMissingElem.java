@@ -6,11 +6,16 @@ public class PermMissingElem {
 
     @Silly
     public int findMissingElement(int[] values) {
+        // We use an additional array to find the missing element in a lineal time.
         int[] readValues = new int[values.length + 1];
+
+        /* We mark the element at the position element - 1, that's possible because of the
+           elements distribution over the [1..(N+1)] range */
         for (int value: values) {
             readValues[value - 1] = 1;
         }
 
+        // The unique element that wasn't marked is the missing one.
         for (int i = 0; i < readValues.length; i++) {
             if (readValues[i] == 0) {
                 return i + 1;
