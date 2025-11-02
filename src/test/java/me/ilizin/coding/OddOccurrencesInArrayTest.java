@@ -25,8 +25,14 @@ public class OddOccurrencesInArrayTest {
     }
 
     @Test
-    public void calculateCounters () {
+    public void findUnpairedElement () {
         OddOccurrencesInArray oddOccurrencesInArray = new OddOccurrencesInArray();
         Assert.assertEquals(expectedUnpairedElement, oddOccurrencesInArray.findUnpairedElement(values));
+    }
+
+    @Test
+    public void findUnpairedElementWithoutOrdering () {
+        OddOccurrencesInArray oddOccurrencesInArray = new OddOccurrencesInArray();
+        Assert.assertEquals(expectedUnpairedElement, oddOccurrencesInArray.findUnpairedElementWithoutOrdering(values));
     }
 }
