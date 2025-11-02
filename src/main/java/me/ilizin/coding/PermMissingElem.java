@@ -26,6 +26,8 @@ public class PermMissingElem {
 
     public int findMissingElementWithoutExtraArraySupport(int[] values) {
         for (int i = 0; i < values.length; i++) {
+            /* Instead of using an extra array to mark the elements found,
+               we swap the elements until we find the current position right element. */
             while (values[i] != i + 1 && values[i] != values.length + 1) {
                 int swap = values[i];
                 int swap2 = values[values[i] - 1];
@@ -33,6 +35,8 @@ public class PermMissingElem {
                 values[swap - 1] = swap;
             }
         }
+        /* At most, we've done N swapping because for each swap we put an element into the right position,
+          therefore as we've N elements we will do N swap in total at most. */
 
         for (int i = 0; i < values.length; i++) {
             if (values[i] != i + 1) {
