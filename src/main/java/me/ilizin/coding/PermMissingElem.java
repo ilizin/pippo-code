@@ -24,7 +24,7 @@ public class PermMissingElem {
 
     public int findMissingElementWithoutExtraArraySupport(int[] values) {
         for (int i = 0; i < values.length; i++) {
-            if (values[i] != i + 1 && values[i] != values.length + 1) {
+            while (values[i] != i + 1 && values[i] != values.length + 1) {
                 int swap = values[i];
                 int swap2 = values[values[i] - 1];
                 values[i] = swap2;
