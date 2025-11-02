@@ -10,16 +10,13 @@ public class PermMissingElem {
         for (int value: values) {
             readValues[value - 1] = 1;
         }
-        int i = 0;
-        boolean found = false;
-        while (!found) {
+
+        for (int i = 0; i < readValues.length; i++) {
             if (readValues[i] == 0) {
-                found = true;
-            } else {
-                i++;
+                return i + 1;
             }
         }
-        return i + 1;
+        return -1; // This never happens
     }
 
     public int findMissingElementWithoutExtraArraySupport(int[] values) {
@@ -32,15 +29,11 @@ public class PermMissingElem {
             }
         }
 
-        int i = 0;
-        boolean found = false;
-        while (!found && i < values.length) {
+        for (int i = 0; i < values.length; i++) {
             if (values[i] != i + 1) {
-                found = true;
-            } else {
-                i++;
+                return i + 1;
             }
         }
-        return i + 1;
+        return values.length + 1;
     }
 }
