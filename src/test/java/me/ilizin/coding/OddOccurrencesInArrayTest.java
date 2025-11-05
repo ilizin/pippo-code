@@ -12,7 +12,7 @@ public class OddOccurrencesInArrayTest {
         return new Object[][] {
                 { new int[] {9, 3, 9, 3, 9, 7, 9}, 7, "[9, 3, 9, 3, 9, 7, 9]" },
                 { new int[] {9, 9, 9, 9, 9, 9, 1}, 1, "[9, 9, 9, 9, 9, 9, 1]" },
-
+                { new int[] {0, 10, 10}, 0, "[0, 10, 10]" },
         };
     }
 
