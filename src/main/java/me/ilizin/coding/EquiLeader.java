@@ -3,57 +3,50 @@ package me.ilizin.coding;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class EquiLeader {
 
     public int findNumberOfEquiLeader(int[] values) {
-
         int[] dominatorsLeftToRight = new int[values.length];
         Arrays.fill(dominatorsLeftToRight, -1);
 
-        BiFunction<Integer, Integer, Integer> a = (x, y) -> (x + 1) / 2;
-        BiFunction<Integer, Integer, Integer> a2 = (x, y) -> (x - y) / 2;
+        getIntegerIntegerMap(values, dominatorsLeftToRight, false, 0,
+                i -> i < values.length, i -> i + 1, i -> i);
+        return getIntegerIntegerMap(values, dominatorsLeftToRight, true, values.length - 1,
+                i -> i >= 1, i -> i - 1, i ->  (values.length - i) - 1);
+    }
 
+    private int getIntegerIntegerMap(int[] values, int[] dominatorsLeftToRight, boolean isRightToLeft,
+                                             int firstValue, Predicate<Integer> a, Function<Integer, Integer> step,
+                                            Function<Integer, Integer> index) {
         int dominatorOccurrences = -1;
         int dominator = -1;
-        Map<Integer, Integer> memory = new HashMap<>();
-        for (int i = 0; i < values.length; i++) {
-            int value = values[i];
-            Integer occurrences = memory.getOrDefault(value, 0);
-            memory.put(value, occurrences + 1);
-            if (occurrences + 1 > a.apply(i, null)) {
-                dominatorsLeftToRight[i] = value;
-                dominatorOccurrences = occurrences + 1;
-                dominator = value;
-            } else if (dominatorOccurrences > a.apply(i, null)) {
-                dominatorsLeftToRight[i] = dominator;
-            }
-        }
-
-        dominatorOccurrences = -1;
-        dominator = -1;
         int equiLeaderCount = 0;
-        memory.clear();
-        for (int i = values.length - 1; i >= 1; i--) {
+
+        Map<Integer, Integer> memory = new HashMap<>();
+        for (int i = firstValue; a.test(i); i = step.apply(i)) {
+            int indexx = index.apply(i);
+
             int value = values[i];
-            Integer occurrences = memory.getOrDefault(value, 0);
-            memory.put(value, occurrences + 1);
-            if (occurrences + 1 > a2.apply(values.length, i)) {
+            int occurrences = memory.getOrDefault(value, 0) + 1;
+            memory.put(value, occurrences);
+            if (occurrences  > (indexx + 1) / 2) {
                 dominatorsLeftToRight[i] = value;
-                dominatorOccurrences = occurrences + 1;
+                dominatorOccurrences = occurrences;
                 dominator = value;
-                if (dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
+                if (isRightToLeft && dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
                     equiLeaderCount++;
                 }
-            } else if (dominatorOccurrences > a2.apply(values.length, i)) {
+            } else if (dominatorOccurrences > (indexx + 1) / 2) {
                 dominatorsLeftToRight[i] = dominator;
-                if (dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
+
+                if (isRightToLeft && dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
                     equiLeaderCount++;
                 }
             }
         }
-
         return equiLeaderCount;
     }
 }
