@@ -26,7 +26,7 @@ public class EquiLeader {
                 i -> i >= 1, i -> i - 1, i ->  (values.length - i) - 1);
     }
 
-    private int findNumberOfEquiLeaderCommon(int[] values, int[] dominatorsLeftToRight, boolean isRightToLeft,
+    private int findNumberOfEquiLeaderCommon(int[] values, int[] dominators, boolean isRightToLeft,
                                      int firstValue, Predicate<Integer> a, Function<Integer, Integer> step,
                                      Function<Integer, Integer> index) {
 
@@ -41,15 +41,15 @@ public class EquiLeader {
             int occurrences = memory.getOrDefault(value, 0) + 1;
             memory.put(value, occurrences);
             if (occurrences  > (index.apply(i) + 1) / 2) {
-                dominatorsLeftToRight[i] = value;
+                dominators[i] = value;
                 dominatorOccurrences = occurrences;
                 dominator = value;
-                if (isRightToLeft && dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
+                if (isRightToLeft && dominators[i - 1] == dominators[i]) {
                     equiLeaderCount++;
                 }
             } else if (dominatorOccurrences > (index.apply(i) + 1) / 2) {
-                dominatorsLeftToRight[i] = dominator;
-                if (isRightToLeft && dominatorsLeftToRight[i - 1] == dominatorsLeftToRight[i]) {
+                dominators[i] = dominator;
+                if (isRightToLeft && dominators[i - 1] == dominators[i]) {
                     equiLeaderCount++;
                 }
             }
