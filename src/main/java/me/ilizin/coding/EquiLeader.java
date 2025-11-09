@@ -37,17 +37,15 @@ public class EquiLeader {
         Map<Integer, Integer> memory = new HashMap<>();
         for (int i = firstValue; endCondition.test(i); i = stepFunction.apply(i)) {
 
-            int value = values[i];
-            int occurrences = memory.getOrDefault(value, 0) + 1;
-            memory.put(value, occurrences);
-            if (occurrences  > index.apply(i)) {
-                dominators[i] = value;
+            int occurrences = memory.getOrDefault(values[i], 0) + 1;
+            memory.put(values[i], occurrences);
+
+            if (occurrences > index.apply(i)) {
                 dominatorOccurrences = occurrences;
-                dominator = value;
-                if (isRightToLeft && dominators[i - 1] == dominators[i]) {
-                    equiLeaderCount++;
-                }
-            } else if (dominatorOccurrences > index.apply(i)) {
+                dominator = values[i];
+            }
+
+            if (dominatorOccurrences > index.apply(i)) {
                 dominators[i] = dominator;
                 if (isRightToLeft && dominators[i - 1] == dominators[i]) {
                     equiLeaderCount++;
