@@ -27,7 +27,7 @@ public class EquiLeader {
     }
 
     private int findNumberOfEquiLeaderCommon(int[] values, int[] dominators, boolean isRightToLeft,
-                                     int firstValue, Predicate<Integer> a, Function<Integer, Integer> step,
+                                     int firstValue, Predicate<Integer> endCondition, Function<Integer, Integer> stepFunction,
                                      Function<Integer, Integer> index) {
 
         int dominatorOccurrences = -1;
@@ -35,7 +35,7 @@ public class EquiLeader {
         int equiLeaderCount = 0;
 
         Map<Integer, Integer> memory = new HashMap<>();
-        for (int i = firstValue; a.test(i); i = step.apply(i)) {
+        for (int i = firstValue; endCondition.test(i); i = stepFunction.apply(i)) {
 
             int value = values[i];
             int occurrences = memory.getOrDefault(value, 0) + 1;
