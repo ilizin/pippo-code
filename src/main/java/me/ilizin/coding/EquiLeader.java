@@ -1,6 +1,5 @@
 package me.ilizin.coding;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -9,11 +8,10 @@ import java.util.function.Predicate;
 public class EquiLeader {
 
     public int findNumberOfEquiLeader(int[] values) {
-        int[] dominatorsLeftToRight = new int[values.length];
-        Arrays.fill(dominatorsLeftToRight, -1);
+        int[] dominators = new int[values.length];
 
-        findNumberOfEquiLeaderFromLeftToRight(values, dominatorsLeftToRight);
-        return findNumberOfEquiLeaderFromRightToLeft(values, dominatorsLeftToRight);
+        findNumberOfEquiLeaderFromLeftToRight(values, dominators);
+        return findNumberOfEquiLeaderFromRightToLeft(values, dominators);
     }
 
     private int findNumberOfEquiLeaderFromLeftToRight(int[] values,int[] dominatorsLeftToRight) {
@@ -50,6 +48,8 @@ public class EquiLeader {
                 if (isRightToLeft && dominators[i - 1] == dominators[i]) {
                     equiLeaderCount++;
                 }
+            } else {
+                dominators[i] = -1;
             }
         }
         return equiLeaderCount;
