@@ -35,9 +35,7 @@ public class EquiLeader {
         Map<Integer, Integer> memory = new HashMap<>();
         for (int i = firstValue; endCondition.test(i); i = stepFunction.apply(i)) {
 
-            int occurrences = memory.getOrDefault(values[i], 0) + 1;
-            memory.put(values[i], occurrences);
-
+            int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
             if (occurrences > index.apply(i)) {
                 dominatorOccurrences = occurrences;
                 dominator = values[i];
