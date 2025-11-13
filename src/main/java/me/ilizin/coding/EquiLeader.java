@@ -16,7 +16,7 @@ public class EquiLeader {
 
     private int findNumberOfEquiLeaderFromLeftToRight(int[] values,int[] dominatorsLeftToRight) {
         return findNumberOfEquiLeaderCommon(values, dominatorsLeftToRight, false, 0,
-                i -> i < values.length, i -> i + 1, i -> (i + 1) / 2);
+                i -> i < values.length - 1, i -> i + 1, i -> (i + 1) / 2);
     }
 
     private int findNumberOfEquiLeaderFromRightToLeft(int[] values,int[] dominatorsLeftToRight) {
