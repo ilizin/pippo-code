@@ -12,6 +12,7 @@ Anyway *pippo* is the italian translation of the [*disney character Goofy*](http
 Follow these markdowns for the problems description
 
 * [Binary gap](./src/site/BinaryGap.md)
+* [CommonPrimeDivisors](./src/site/CommonPrimeDivisors.md)
 * [Dominator](./src/site/Dominator.md)
 * [EquiLeader](./src/site/EquiLeader.md)
 * [Max counters](./src/site/MaxCounters.md)
