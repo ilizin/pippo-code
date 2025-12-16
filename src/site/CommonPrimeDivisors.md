@@ -31,9 +31,9 @@ the function should return 1, because only one pair (15, 75) has the same set of
 
 ## Examples
 
-| Input                      | Output |
-|----------------------------|:------:|
-| A = [15, 10, 3, 75, 30, 5] |   1    |
+| Input                            | Output |
+|----------------------------------|:------:|
+| A = [15, 10, 3], B = [75, 30, 5] |   1    |
 
 ## Input assumptions
 
