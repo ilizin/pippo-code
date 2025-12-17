@@ -3,6 +3,26 @@ package me.ilizin.coding;
 public class CommonPrimeDivisors {
 
     public int findCommonPrimeDivisors(int[] values, int[] values2) {
-        return 0;
+        int total = 0;
+        for (int i = 0; i < values.length; i++) {
+            int div;
+            int mod;
+            int maxValue;
+            int minValue;
+            if (values[i] > values2[i]) {
+                maxValue = values[i];
+                minValue = values2[i];
+            } else {
+                maxValue = values2[i];
+                minValue = values[i];
+            }
+            div = maxValue / minValue;
+            mod = maxValue % minValue;
+
+            if (mod == 0 && minValue % div == 0) {
+                total++;
+            }
+        }
+        return total;
     }
 }
