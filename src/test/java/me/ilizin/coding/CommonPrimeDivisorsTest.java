@@ -12,6 +12,7 @@ public class CommonPrimeDivisorsTest {
     public static Object[][] provideTestData() {
         return new Object[][] {
                 { new int[] {2}, new int[] {8}, 1, "[2]", "[8]" },
+                { new int[] {2}, new int[] {1}, 0, "[2]", "[1]" },
                 { new int[] {15, 10, 3}, new int[] {75, 30, 5}, 1, "[15, 10, 3]", "[75, 30, 5]" },
                 { new int[] {1}, new int[] {1}, 1, "[1]", "[1]" },
         };

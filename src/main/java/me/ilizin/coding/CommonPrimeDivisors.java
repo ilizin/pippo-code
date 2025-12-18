@@ -19,8 +19,18 @@ public class CommonPrimeDivisors {
             div = maxValue / minValue;
             mod = maxValue % minValue;
 
-            if (mod == 0 && minValue % div == 0) {
-                total++;
+            if (mod == 0) {
+                if (div <= minValue && minValue % div == 0) {
+                    total++;
+                }
+                if (div > minValue && minValue != 1) {
+                    while (minValue < div) {
+                        minValue *= minValue;
+                    }
+                    if (div == minValue) {
+                        total++;
+                    }
+                }
             }
         }
         return total;
