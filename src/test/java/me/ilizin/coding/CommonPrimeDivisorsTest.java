@@ -11,6 +11,7 @@ public class CommonPrimeDivisorsTest {
     @Parameterized.Parameters(name = "{index}: values = {2}, expectedDominatorIndex = {1}")
     public static Object[][] provideTestData() {
         return new Object[][] {
+                { new int[] {36}, new int[] {24}, 1, "[36]", "[24]" },
                 { new int[] {2}, new int[] {8}, 1, "[2]", "[8]" },
                 { new int[] {2}, new int[] {1}, 0, "[2]", "[1]" },
                 { new int[] {15, 10, 3}, new int[] {75, 30, 5}, 1, "[15, 10, 3]", "[75, 30, 5]" },

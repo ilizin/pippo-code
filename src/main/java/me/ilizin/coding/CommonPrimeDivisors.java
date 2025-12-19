@@ -21,6 +21,8 @@ public class CommonPrimeDivisors {
 
             if (mod == 0) {
                 if (div <= minValue && minValue % div == 0) {
+                    System.out.println(values[i]);
+                    System.out.println(values2[i]);
                     total++;
                 }
                 if (div > minValue && minValue != 1) {
@@ -28,6 +30,8 @@ public class CommonPrimeDivisors {
                         minValue *= minValue;
                     }
                     if (div == minValue) {
+                        System.out.println(values[i]);
+                        System.out.println(values2[i]);
                         total++;
                     }
                 }
