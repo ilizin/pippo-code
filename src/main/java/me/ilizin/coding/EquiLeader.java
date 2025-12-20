@@ -80,6 +80,16 @@ public class EquiLeader {
             }
         }
 
-        return 0;
+        for (int i = values.length - 1; i > 0; i--) {
+            Integer t = total.get(values[i - 1]);
+            if (t != null) {
+                int a = t - dominators[i - 1];
+                if (a > (values.length - i) / 2) {
+                    equiLeaderCount++;
+                }
+            }
+        }
+
+        return equiLeaderCount;
     }
 }
