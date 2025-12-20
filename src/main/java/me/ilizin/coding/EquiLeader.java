@@ -1,5 +1,7 @@
 package me.ilizin.coding;
 
+import me.ilizin.coding.annotations.Silly;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -7,6 +9,7 @@ import java.util.function.Predicate;
 
 public class EquiLeader {
 
+    @Silly
     public int findNumberOfEquiLeader(int[] values) {
         int[] dominators = new int[values.length];
 
@@ -51,5 +54,32 @@ public class EquiLeader {
             }
         }
         return equiLeaderCount;
+    }
+
+    public int findNumberOfEquiLeaderFaster(int[] values) {
+        int[] dominators = new int[values.length];
+        Map<Integer, Integer> total = new HashMap<>();
+        Map<Integer, Integer> memory = new HashMap<>();
+
+        int dominatorOccurrences = -1;
+        int dominator = -1;
+        int equiLeaderCount = 0;
+
+        for (int i = 0; i < values.length; i++) {
+            int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
+            if (occurrences > (i + 1) / 2) {
+                dominatorOccurrences = occurrences;
+                dominator = values[i];
+            }
+
+            if (dominatorOccurrences > (i + 1) / 2) {
+                dominators[i] = dominatorOccurrences;
+                total.put(dominator, dominatorOccurrences);
+            } else {
+                dominators[i] = -1000000001;
+            }
+        }
+
+        return 0;
     }
 }

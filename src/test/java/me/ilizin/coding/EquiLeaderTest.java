@@ -28,9 +28,15 @@ public class EquiLeaderTest {
         this.expectedNumberOfEquiLeader = expectedNumberOfEquiLeader;
     }
 
-    @Test
-    public void findEquiLeaderNumber () {
+    //@Test
+    public void findNumberOfEquiLeader() {
         EquiLeader equiLeader = new EquiLeader();
         Assert.assertEquals(expectedNumberOfEquiLeader, equiLeader.findNumberOfEquiLeader(values));
+    }
+
+    @Test
+    public void findNumberOfEquiLeaderFaster() {
+        EquiLeader equiLeader = new EquiLeader();
+        Assert.assertEquals(expectedNumberOfEquiLeader, equiLeader.findNumberOfEquiLeaderFaster(values));
     }
 }
