@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
-
+import java.util.Arrays;
 public class EquiLeader {
 
     @Silly
@@ -57,7 +57,9 @@ public class EquiLeader {
     }
 
     public int findNumberOfEquiLeaderFaster(int[] values) {
+        //System.out.println(Arrays.toString(values));
         int[] dominators = new int[values.length];
+        int[] b = new int[values.length];
         Map<Integer, Integer> total = new HashMap<>();
         Map<Integer, Integer> memory = new HashMap<>();
 
@@ -74,16 +76,17 @@ public class EquiLeader {
 
             if (dominatorOccurrences > (i + 1) / 2) {
                 dominators[i] = dominatorOccurrences;
-                total.put(dominator, dominatorOccurrences);
+                b[i] = dominator;
+                //total.put(dominator, dominatorOccurrences);
             } else {
-                dominators[i] = -1000000001;
+                b[i] = -1000000001;
             }
         }
 
         for (int i = values.length - 1; i > 0; i--) {
-            Integer t = total.get(values[i - 1]);
-            if (t != null) {
-                int a = t - dominators[i - 1];
+            //Integer t = total.get(values[i - 1]);
+            if (b[i - 1] != -1000000001) {
+                int a = memory.get(b[i - 1]) - dominators[i - 1];
                 if (a > (values.length - i) / 2) {
                     equiLeaderCount++;
                 }
