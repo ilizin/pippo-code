@@ -8,7 +8,7 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 public class EquiLeaderTest {
 
-    @Parameterized.Parameters(name = "{index}: valuesStr = {2}")
+    @Parameterized.Parameters(name = "{index}: expectedNumberOfEquiLeader = {1}, valuesStr = {2}")
     public static Object[][] provideTestData() {
         return new Object[][] {
                 { new int[] {4, 3, 4, 4, 4, 2}, 2, "[4, 3, 4, 4, 4, 2]" },
@@ -18,7 +18,7 @@ public class EquiLeaderTest {
                 { new int[] {1, 2, 3, 4, 5}, 0, "[1, 2, 3, 4, 5]" },
                 { new int[] {4, 4, 2, 5, 3, 4, 4, 4}, 3, "[4, 4, 2, 5, 3, 4, 4, 4]" },
                 { new int[] {0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1},
-                79, ""}
+                        79, "[0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1]"}
         };
     }
 
@@ -30,7 +30,7 @@ public class EquiLeaderTest {
         this.expectedNumberOfEquiLeader = expectedNumberOfEquiLeader;
     }
 
-    //@Test
+    @Test
     public void findNumberOfEquiLeader() {
         EquiLeader equiLeader = new EquiLeader();
         Assert.assertEquals(expectedNumberOfEquiLeader, equiLeader.findNumberOfEquiLeader(values));
