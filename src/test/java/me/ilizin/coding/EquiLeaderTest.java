@@ -31,14 +31,14 @@ public class EquiLeaderTest {
     }
 
     @Test
-    public void findNumberOfEquiLeader() {
-        EquiLeader equiLeader = new EquiLeader();
+    public void findNumberOfEquiLeaderSlow() {
+        EquiLeader.EquiLeaderSlow equiLeader = new EquiLeader.EquiLeaderSlow();
         Assert.assertEquals(expectedNumberOfEquiLeader, equiLeader.findNumberOfEquiLeader(values));
     }
 
     @Test
-    public void findNumberOfEquiLeaderFaster() {
-        EquiLeader equiLeader = new EquiLeader();
-        Assert.assertEquals(expectedNumberOfEquiLeader, equiLeader.findNumberOfEquiLeaderFaster(values));
+    public void findNumberOfEquiLeaderFast() {
+        EquiLeader.EquiLeaderFast equiLeader = new EquiLeader.EquiLeaderFast();
+        Assert.assertEquals(expectedNumberOfEquiLeader, equiLeader.findNumberOfEquiLeader(values));
     }
 }

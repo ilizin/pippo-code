@@ -8,87 +8,93 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 public class EquiLeader {
 
-    @Silly
-    public int findNumberOfEquiLeader(int[] values) {
-        int[] dominators = new int[values.length];
+    public static class EquiLeaderSlow {
 
-        findNumberOfEquiLeaderFromLeftToRight(values, dominators);
-        return findNumberOfEquiLeaderFromRightToLeft(values, dominators);
-    }
+        @Silly
+        public int findNumberOfEquiLeader(int[] values) {
+            int[] dominators = new int[values.length];
 
-    private int findNumberOfEquiLeaderFromLeftToRight(int[] values,int[] dominatorsLeftToRight) {
-        return findNumberOfEquiLeaderCommon(values, dominatorsLeftToRight, false, 0,
-                i -> i < values.length - 1, i -> i + 1, i -> (i + 1) / 2);
-    }
+            findNumberOfEquiLeaderFromLeftToRight(values, dominators);
+            return findNumberOfEquiLeaderFromRightToLeft(values, dominators);
+        }
 
-    private int findNumberOfEquiLeaderFromRightToLeft(int[] values,int[] dominatorsLeftToRight) {
-        return findNumberOfEquiLeaderCommon(values, dominatorsLeftToRight, true, values.length - 1,
-                i -> i >= 1, i -> i - 1, i ->  (values.length - i) / 2);
-    }
+        private int findNumberOfEquiLeaderFromLeftToRight(int[] values,int[] dominatorsLeftToRight) {
+            return findNumberOfEquiLeaderCommon(values, dominatorsLeftToRight, false, 0,
+                    i -> i < values.length - 1, i -> i + 1, i -> (i + 1) / 2);
+        }
 
-    private int findNumberOfEquiLeaderCommon(int[] values, int[] dominators, boolean isRightToLeft,
-                                     int firstValue, Predicate<Integer> endCondition, Function<Integer, Integer> stepFunction,
-                                     Function<Integer, Integer> index) {
+        private int findNumberOfEquiLeaderFromRightToLeft(int[] values,int[] dominatorsLeftToRight) {
+            return findNumberOfEquiLeaderCommon(values, dominatorsLeftToRight, true, values.length - 1,
+                    i -> i >= 1, i -> i - 1, i ->  (values.length - i) / 2);
+        }
 
-        int dominatorOccurrences = -1;
-        int dominator = -1;
-        int equiLeaderCount = 0;
+        private int findNumberOfEquiLeaderCommon(int[] values, int[] dominators, boolean isRightToLeft,
+                                                 int firstValue, Predicate<Integer> endCondition, Function<Integer, Integer> stepFunction,
+                                                 Function<Integer, Integer> index) {
 
-        Map<Integer, Integer> memory = new HashMap<>();
-        for (int i = firstValue; endCondition.test(i); i = stepFunction.apply(i)) {
+            int dominatorOccurrences = -1;
+            int dominator = -1;
+            int equiLeaderCount = 0;
 
-            int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
-            if (occurrences > index.apply(i)) {
-                dominatorOccurrences = occurrences;
-                dominator = values[i];
-            }
+            Map<Integer, Integer> memory = new HashMap<>();
+            for (int i = firstValue; endCondition.test(i); i = stepFunction.apply(i)) {
 
-            if (dominatorOccurrences > index.apply(i)) {
-                dominators[i] = dominator;
-                if (isRightToLeft && dominators[i - 1] == dominators[i]) {
-                    equiLeaderCount++;
+                int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
+                if (occurrences > index.apply(i)) {
+                    dominatorOccurrences = occurrences;
+                    dominator = values[i];
                 }
-            } else {
-                dominators[i] = -1;
-            }
-        }
-        return equiLeaderCount;
-    }
 
-    public int findNumberOfEquiLeaderFaster(int[] values) {
-        int[] dominators = new int[values.length];
-        int[] b = new int[values.length];
-        Map<Integer, Integer> total = new HashMap<>();
-        Map<Integer, Integer> memory = new HashMap<>();
-
-        int dominatorOccurrences = -1;
-        int dominator = -1;
-        int equiLeaderCount = 0;
-
-        for (int i = 0; i < values.length; i++) {
-            int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
-            if (occurrences > (i + 1) / 2) {
-                dominatorOccurrences = occurrences;
-                dominator = values[i];
-            }
-
-            if (dominatorOccurrences > (i + 1) / 2) {
-                dominators[i] = dominatorOccurrences;
-                b[i] = dominator;
-            } else {
-                b[i] = -1000000001;
-            }
-        }
-
-        for (int i = values.length - 1; i > 0; i--) {
-            if (b[i - 1] != -1000000001) {
-                int a = memory.get(b[i - 1]) - dominators[i - 1];
-                if (a > (values.length - i) / 2) {
-                    equiLeaderCount++;
+                if (dominatorOccurrences > index.apply(i)) {
+                    dominators[i] = dominator;
+                    if (isRightToLeft && dominators[i - 1] == dominators[i]) {
+                        equiLeaderCount++;
+                    }
+                } else {
+                    dominators[i] = -1;
                 }
             }
+            return equiLeaderCount;
         }
+    }
 
-        return equiLeaderCount;
+    public static class EquiLeaderFast {
+
+        public int findNumberOfEquiLeader(int[] values) {
+            int[] dominators = new int[values.length];
+            int[] b = new int[values.length];
+            Map<Integer, Integer> total = new HashMap<>();
+            Map<Integer, Integer> memory = new HashMap<>();
+
+            int dominatorOccurrences = -1;
+            int dominator = -1;
+            int equiLeaderCount = 0;
+
+            for (int i = 0; i < values.length; i++) {
+                int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
+                if (occurrences > (i + 1) / 2) {
+                    dominatorOccurrences = occurrences;
+                    dominator = values[i];
+                }
+
+                if (dominatorOccurrences > (i + 1) / 2) {
+                    dominators[i] = dominatorOccurrences;
+                    b[i] = dominator;
+                } else {
+                    b[i] = -1000000001;
+                }
+            }
+
+            for (int i = values.length - 1; i > 0; i--) {
+                if (b[i - 1] != -1000000001) {
+                    int a = memory.get(b[i - 1]) - dominators[i - 1];
+                    if (a > (values.length - i) / 2) {
+                        equiLeaderCount++;
+                    }
+                }
+            }
+
+            return equiLeaderCount;
+        }
     }
 }
