@@ -69,7 +69,6 @@ public class EquiLeader {
 
             int dominatorOccurrences = -1;
             int dominator = -1;
-            int equiLeaderCount = 0;
 
             for (int i = 0; i < values.length; i++) {
                 int occurrences = valuesOccurrences.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
@@ -86,6 +85,7 @@ public class EquiLeader {
                 }
             }
 
+            int equiLeaderCount = 0;
             for (int i = values.length - 1; i > 0; i--) {
                 if (dominators[i - 1] != NO_DOMINATOR_CONSTANT) {
                     int rightSideValueOccurrences = valuesOccurrences.get(dominators[i - 1]) - dominatorsOccurrences[i - 1];
