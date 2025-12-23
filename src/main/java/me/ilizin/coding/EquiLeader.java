@@ -60,35 +60,36 @@ public class EquiLeader {
 
     public static class EquiLeaderFast {
 
+        private static final int NO_DOMINATOR_CONSTANT = -1000000001;
+
         public int findNumberOfEquiLeader(int[] values) {
+            int[] dominatorsOccurrences = new int[values.length];
             int[] dominators = new int[values.length];
-            int[] b = new int[values.length];
-            Map<Integer, Integer> total = new HashMap<>();
-            Map<Integer, Integer> memory = new HashMap<>();
+            Map<Integer, Integer> valuesOccurrences = new HashMap<>();
 
             int dominatorOccurrences = -1;
             int dominator = -1;
             int equiLeaderCount = 0;
 
             for (int i = 0; i < values.length; i++) {
-                int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
+                int occurrences = valuesOccurrences.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
                 if (occurrences > (i + 1) / 2) {
                     dominatorOccurrences = occurrences;
                     dominator = values[i];
                 }
 
                 if (dominatorOccurrences > (i + 1) / 2) {
-                    dominators[i] = dominatorOccurrences;
-                    b[i] = dominator;
+                    dominatorsOccurrences[i] = dominatorOccurrences;
+                    dominators[i] = dominator;
                 } else {
-                    b[i] = -1000000001;
+                    dominators[i] = NO_DOMINATOR_CONSTANT;
                 }
             }
 
             for (int i = values.length - 1; i > 0; i--) {
-                if (b[i - 1] != -1000000001) {
-                    int a = memory.get(b[i - 1]) - dominators[i - 1];
-                    if (a > (values.length - i) / 2) {
+                if (dominators[i - 1] != NO_DOMINATOR_CONSTANT) {
+                    int rightSideValueOccurrences = valuesOccurrences.get(dominators[i - 1]) - dominatorsOccurrences[i - 1];
+                    if (rightSideValueOccurrences > (values.length - i) / 2) {
                         equiLeaderCount++;
                     }
                 }
