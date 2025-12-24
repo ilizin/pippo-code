@@ -8,6 +8,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 public class EquiLeader {
 
+    private static final int NO_DOMINATOR_CONSTANT = -1000000001;
+
     public static class EquiLeaderSlow {
 
         @Silly
@@ -51,7 +53,7 @@ public class EquiLeader {
                         equiLeaderCount++;
                     }
                 } else {
-                    dominators[i] = -1;
+                    dominators[i] = NO_DOMINATOR_CONSTANT;
                 }
             }
             return equiLeaderCount;
@@ -59,8 +61,6 @@ public class EquiLeader {
     }
 
     public static class EquiLeaderFast {
-
-        private static final int NO_DOMINATOR_CONSTANT = -1000000001;
 
         public int findNumberOfEquiLeader(int[] values) {
             int[] dominatorsOccurrences = new int[values.length];
