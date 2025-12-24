@@ -88,8 +88,8 @@ public class EquiLeader {
             int equiLeaderCount = 0;
             for (int i = values.length - 1; i > 0; i--) {
                 if (dominators[i - 1] != NO_DOMINATOR_CONSTANT) {
-                    int rightSideValueOccurrences = valuesOccurrences.get(dominators[i - 1]) - dominatorsOccurrences[i - 1];
-                    if (rightSideValueOccurrences > (values.length - i) / 2) {
+                    int rightDominatorOccurrences = valuesOccurrences.get(dominators[i - 1]) - dominatorsOccurrences[i - 1];
+                    if (rightDominatorOccurrences > (values.length - i) / 2) {
                         equiLeaderCount++;
                     }
                 }
