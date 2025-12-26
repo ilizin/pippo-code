@@ -63,6 +63,21 @@ public class EquiLeader {
     public static class EquiLeaderFast {
 
         public int findNumberOfEquiLeader(int[] values) {
+
+            /*
+             * valuesOccurrences - The number of occurrences of each value.
+             * dominatorsOccurrences - dominatorsOccurrences[i] is the number of the dominator of the interval [0,i]
+             *                         occurrences or -1000000001 if the interval [0,i]
+             *                         hasn't a dominator.
+             * dominators - dominators[i] is the dominator of the interval [0,i] or -1000000001 if the interval [0,i]
+             *              hasn't a dominator.
+             *
+             * For example, if values is [4, 4, 2, 5, 3, 4, 4, 4] then:
+             *
+             * valuesOccurrences = [(4, 5), (2, 1), (3, 1), (5, 1)]
+             * dominatorsOccurrences = [1, 2, 2, -1000000001, -1000000001, -1000000001, 4, 5]
+             * dominators = [4, 4, 4, -1000000001, -1000000001, -1000000001, 4, 4]
+             * */
             int[] dominatorsOccurrences = new int[values.length];
             int[] dominators = new int[values.length];
             Map<Integer, Integer> valuesOccurrences = new HashMap<>();
@@ -71,9 +86,9 @@ public class EquiLeader {
             int dominator = -1;
 
             for (int i = 0; i < values.length; i++) {
-                int occurrences = valuesOccurrences.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
-                if (occurrences > (i + 1) / 2) {
-                    dominatorOccurrences = occurrences;
+                int valueOccurrences = valuesOccurrences.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
+                if (valueOccurrences > (i + 1) / 2) {
+                    dominatorOccurrences = valueOccurrences;
                     dominator = values[i];
                 }
 
@@ -82,6 +97,7 @@ public class EquiLeader {
                     dominators[i] = dominator;
                 } else {
                     dominators[i] = NO_DOMINATOR_CONSTANT;
+                    dominatorsOccurrences[i] = NO_DOMINATOR_CONSTANT;
                 }
             }
 
