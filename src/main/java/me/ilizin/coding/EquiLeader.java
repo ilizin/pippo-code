@@ -16,7 +16,10 @@ public class EquiLeader {
         public int findNumberOfEquiLeader(int[] values) {
             int[] dominators = new int[values.length];
 
+            // Count the number of leaders from left to right, therefore over the ranges: [0, 0], [0, 1], [0, 2], etc.
             findNumberOfEquiLeaderFromLeftToRight(values, dominators);
+            /* Count the number of leaders from right to left, therefore over the ranges: [length - 2, length - 1],
+               [length - 3, length - 1], [length - 4, length - 1], etc. */
             return findNumberOfEquiLeaderFromRightToLeft(values, dominators);
         }
 
@@ -38,12 +41,12 @@ public class EquiLeader {
             int dominator = -1;
             int equiLeaderCount = 0;
 
-            Map<Integer, Integer> memory = new HashMap<>();
+            Map<Integer, Integer> valuesOccurrences = new HashMap<>();
             for (int i = firstValue; endCondition.test(i); i = stepFunction.apply(i)) {
 
-                int occurrences = memory.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
-                if (occurrences > index.apply(i)) {
-                    dominatorOccurrences = occurrences;
+                int valueOccurrences = valuesOccurrences.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
+                if (valueOccurrences > index.apply(i)) {
+                    dominatorOccurrences = valueOccurrences;
                     dominator = values[i];
                 }
 
