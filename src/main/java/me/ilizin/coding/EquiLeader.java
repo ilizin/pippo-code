@@ -49,9 +49,9 @@ public class EquiLeader {
                     dominatorOccurrences = valueOccurrences;
                     dominator = values[i];
                 }
-
                 if (dominatorOccurrences > index.apply(i)) {
                     dominators[i] = dominator;
+                    // During the process of counting the leaders from right to left find out which leaders are equi leaders.
                     if (isRightToLeft && dominators[i - 1] == dominators[i]) {
                         equiLeaderCount++;
                     }
