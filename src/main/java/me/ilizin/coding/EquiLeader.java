@@ -94,7 +94,8 @@ public class EquiLeader {
                     dominatorOccurrences = valueOccurrences;
                     dominator = values[i];
                 }
-
+                /* If we're at the i position, the number of elements of the range [0, i] is i + 1, therefore a value is a leader
+                   if the number of occurrences is greater than (i + 1) / 2 */
                 if (dominatorOccurrences > (i + 1) / 2) {
                     dominatorsOccurrences[i] = dominatorOccurrences;
                     dominators[i] = dominator;
