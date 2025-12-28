@@ -111,6 +111,9 @@ public class EquiLeader {
                     /* rightDominatorOccurrences - It's the number of occurrences of the dominators[i - 1] value
                                                    into the [i, values.length - 1] interval */
                     int rightDominatorOccurrences = valuesOccurrences.get(dominators[i - 1]) - dominatorsOccurrences[i - 1];
+                    /* If we're at the i position from the end, the number of elements of the range [i, values.length - 1] is
+                       values.length - i, therefore a value is a leader if the number of occurrences is greater than
+                       (values.length - i) / 2 */
                     if (rightDominatorOccurrences > (values.length - i) / 2) {
                         equiLeaderCount++;
                     }
