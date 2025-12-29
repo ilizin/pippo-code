@@ -4,6 +4,7 @@ import me.ilizin.coding.annotations.Silly;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
 public class EquiLeader {
@@ -25,17 +26,17 @@ public class EquiLeader {
 
         private int findNumberOfEquiLeaderFromLeftToRight(int[] values,int[] dominatorsLeftToRight) {
             return findNumberOfEquiLeaderCommon(values, dominatorsLeftToRight, false, 0,
-                    i -> i < values.length - 1, i -> i + 1, i -> (i + 1) / 2);
+                    i -> i < values.length - 1, i -> i + 1, (value, index) -> value > (index + 1) / 2);
         }
 
         private int findNumberOfEquiLeaderFromRightToLeft(int[] values,int[] dominatorsLeftToRight) {
             return findNumberOfEquiLeaderCommon(values, dominatorsLeftToRight, true, values.length - 1,
-                    i -> i >= 1, i -> i - 1, i ->  (values.length - i) / 2);
+                    i -> i >= 1, i -> i - 1, (value, index) -> value > (values.length - index) / 2);
         }
 
         private int findNumberOfEquiLeaderCommon(int[] values, int[] dominators, boolean isRightToLeft,
                                                  int firstValue, Predicate<Integer> endCondition, Function<Integer, Integer> stepFunction,
-                                                 Function<Integer, Integer> index) {
+                                                 BiPredicate<Integer, Integer> leaderCondition) {
 
             int dominatorOccurrences = -1;
             int dominator = -1;
@@ -45,11 +46,11 @@ public class EquiLeader {
             for (int i = firstValue; endCondition.test(i); i = stepFunction.apply(i)) {
 
                 int valueOccurrences = valuesOccurrences.compute(values[i], (k, v) -> v == null ? 1 : v + 1);
-                if (valueOccurrences > index.apply(i)) {
+                if (leaderCondition.test(valueOccurrences, i)) {
                     dominatorOccurrences = valueOccurrences;
                     dominator = values[i];
                 }
-                if (dominatorOccurrences > index.apply(i)) {
+                if (leaderCondition.test(dominatorOccurrences, i)) {
                     dominators[i] = dominator;
                     // During the process of counting the leaders from right to left find out which leaders are equi leaders.
                     if (isRightToLeft && dominators[i - 1] == dominators[i]) {
