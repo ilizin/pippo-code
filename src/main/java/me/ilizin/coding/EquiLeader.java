@@ -34,6 +34,8 @@ public class EquiLeader {
                     i -> i >= 1, i -> i - 1, (value, index) -> value > (values.length - index) / 2);
         }
 
+        /* The parameters: firstValue, endCondition and stepFunction make possible to generalize how to loop the array from
+           right to left and then left to right to find out the leaders from both directions */
         private int findNumberOfEquiLeaderCommon(int[] values, int[] dominators, boolean isRightToLeft,
                                                  int firstValue, Predicate<Integer> endCondition, Function<Integer, Integer> stepFunction,
                                                  BiPredicate<Integer, Integer> leaderCondition) {
