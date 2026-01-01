@@ -34,8 +34,8 @@ public class EquiLeader {
                     i -> i >= 1, i -> i - 1, (value, index) -> value > (values.length - index) / 2);
         }
 
-        /* The parameters: firstValue, endCondition and stepFunction make possible to generalize how to loop the array from
-           right to left and then left to right to find out the leaders from both directions */
+        /* The parameters: firstValue, endCondition and stepFunction make possible to generalize how to loop the array, if from
+           right to left or from left to right. because we need to find out the leaders from both directions */
         private int findNumberOfEquiLeaderCommon(int[] values, int[] dominators, boolean isRightToLeft,
                                                  int firstValue, Predicate<Integer> endCondition, Function<Integer, Integer> stepFunction,
                                                  BiPredicate<Integer, Integer> leaderCondition) {
@@ -54,7 +54,7 @@ public class EquiLeader {
                 }
                 if (leaderCondition.test(dominatorOccurrences, i)) {
                     dominators[i] = dominator;
-                    // During the process of counting the leaders from right to left find out which leaders are equi leaders.
+                    // During the process of counting the leaders from right to left, we find out which leaders are equi leaders.
                     if (isRightToLeft && dominators[i - 1] == dominators[i]) {
                         equiLeaderCount++;
                     }
@@ -72,8 +72,8 @@ public class EquiLeader {
 
             /*
              * valuesOccurrences - The number of occurrences of each value.
-             * dominatorsOccurrences - dominatorsOccurrences[i] is the number of the dominator of the interval [0,i]
-             *                         occurrences or -1000000001 if the interval [0,i]
+             * dominatorsOccurrences - dominatorsOccurrences[i] is the number of the dominator occurrences
+             *                         of the interval [0,i] or -1000000001 if the interval [0,i]
              *                         hasn't a dominator.
              * dominators - dominators[i] is the dominator of the interval [0,i] or -1000000001 if the interval [0,i]
              *              hasn't a dominator.
@@ -97,7 +97,7 @@ public class EquiLeader {
                     dominatorOccurrences = valueOccurrences;
                     dominator = values[i];
                 }
-                /* If we're at the i position, the number of elements of the range [0, i] is i + 1, therefore a value is a leader
+                /* If we're at the position i, the number of elements of the range [0, i] is i + 1, therefore a value is a leader
                    if the number of occurrences is greater than (i + 1) / 2 */
                 if (dominatorOccurrences > (i + 1) / 2) {
                     dominatorsOccurrences[i] = dominatorOccurrences;
@@ -114,7 +114,7 @@ public class EquiLeader {
                     /* rightDominatorOccurrences - It's the number of occurrences of the dominators[i - 1] value
                                                    into the [i, values.length - 1] interval */
                     int rightDominatorOccurrences = valuesOccurrences.get(dominators[i - 1]) - dominatorsOccurrences[i - 1];
-                    /* If we're at the i position from the end, the number of elements of the range [i, values.length - 1] is
+                    /* If we're at the position i from the end, the number of elements of the range [i, values.length - 1] is
                        values.length - i, therefore a value is a leader if the number of occurrences is greater than
                        (values.length - i) / 2 */
                     if (rightDominatorOccurrences > (values.length - i) / 2) {
