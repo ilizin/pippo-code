@@ -9,7 +9,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 public class EquiLeader {
 
-    private static final int NO_DOMINATOR_CONSTANT = -1000000001;
+    private static final int NO_DOMINATOR_VALUE = -1000000001;
 
     public static class EquiLeaderSlow {
 
@@ -59,7 +59,7 @@ public class EquiLeader {
                         equiLeaderCount++;
                     }
                 } else {
-                    dominators[i] = NO_DOMINATOR_CONSTANT;
+                    dominators[i] = NO_DOMINATOR_VALUE;
                 }
             }
             return equiLeaderCount;
@@ -103,14 +103,14 @@ public class EquiLeader {
                     dominatorsOccurrences[i] = dominatorOccurrences;
                     dominators[i] = dominator;
                 } else {
-                    dominators[i] = NO_DOMINATOR_CONSTANT;
-                    dominatorsOccurrences[i] = NO_DOMINATOR_CONSTANT;
+                    dominators[i] = NO_DOMINATOR_VALUE;
+                    dominatorsOccurrences[i] = NO_DOMINATOR_VALUE;
                 }
             }
 
             int equiLeaderCount = 0;
             for (int i = values.length - 1; i > 0; i--) {
-                if (dominators[i - 1] != NO_DOMINATOR_CONSTANT) {
+                if (dominators[i - 1] != NO_DOMINATOR_VALUE) {
                     /* rightDominatorOccurrences - It's the number of occurrences of the dominators[i - 1] value
                                                    into the [i, values.length - 1] interval */
                     int rightDominatorOccurrences = valuesOccurrences.get(dominators[i - 1]) - dominatorsOccurrences[i - 1];
