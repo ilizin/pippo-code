@@ -124,7 +124,7 @@ Contributions are welcome! If you have an alternative solution or an improvement
 
 GitHub: [ilizin](https://github.com/ilizin)
 
-## References
+## 🔗 References
 
 * Geeks for geeks. (Unknown). *How to calculate log base 2 of an Integer in Java?* <br/>
   Retrieved from https://www.geeksforgeeks.org/java/how-to-calculate-log-base-2-of-an-integer-in-java/
