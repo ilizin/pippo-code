@@ -4,9 +4,9 @@ public class MaxDoubleSliceSum {
 
     public int findMaxDoubleSliceSum(int[] values) {
         int[][] maxSliceSum = new int[values.length - 1][values.length];
-        int[] maxs = new int[values.length - 1];
-        int sum = 0;
+        int[] maxs = new int[values.length];
         int max = Integer.MIN_VALUE;
+
         for (int i = 0; i < values.length - 1; i++) {
             for (int j = i + 1; j < values.length; j++) {
                 if (j == i + 1) {
@@ -21,6 +21,15 @@ public class MaxDoubleSliceSum {
             maxs[i] = max;
             max = Integer.MIN_VALUE;
         }
-        return sum;
+
+        int maxDoubleSliceSum = 0;
+        for (int i = 0; i < values.length - 1; i++) {
+            for (int j = i + 1; j < values.length - 1; j++) {
+                if (maxSliceSum[i][j] + maxs[j + 1] > maxDoubleSliceSum) {
+                    maxDoubleSliceSum = maxSliceSum[i][j] + maxs[j + 1];
+                }
+            }
+        }
+        return maxDoubleSliceSum;
     }
 }
