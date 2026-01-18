@@ -25,8 +25,8 @@ public class MaxDoubleSliceSum {
         int maxDoubleSliceSum = 0;
         for (int i = 0; i < values.length - 1; i++) {
             for (int j = i + 1; j < values.length - 1; j++) {
-                if (maxSliceSum[i][j] + maxs[j + 1] > maxDoubleSliceSum) {
-                    maxDoubleSliceSum = maxSliceSum[i][j] + maxs[j + 1];
+                if (maxSliceSum[i][j] + maxs[j] > maxDoubleSliceSum) {
+                    maxDoubleSliceSum = maxSliceSum[i][j] + maxs[j];
                 }
             }
         }
