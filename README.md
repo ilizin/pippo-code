@@ -7,6 +7,8 @@ This repository also serves as a learning resource for me and for anyone who is 
 
 Anyway *pippo* is the italian translation of the [*disney character Goofy*](https://en.wikipedia.org/wiki/Goofy)
 
+![image](goofy.png)
+
 ## 📘 Description
 
 Follow these markdowns for the problems description
