@@ -7,13 +7,13 @@ This repository contains my solutions to several programming problems, each solu
 I provide a lot of comments and aim to keep the code clean, readable and find efficient solutions in terms of computational time and memory space.
 This repository also serves as a learning resource for me and for anyone who is interested in understanding different ways to solve coding problems.
 
-The programming language is Java, but don't expect to find the last and advanced *Java features*, this repo is about problem-solving and not about Java 😊
+The programming language is Java, but don't expect to find last and advanced *Java features*, this repo is about problem-solving and not about Java 😊
 
 Anyway *pippo* is the italian translation of the [*disney character Goofy*](https://en.wikipedia.org/wiki/Goofy)
 
 ## 📘 Description
 
-Follow these markdowns for the problems description
+Find the problems description under the site folder:
 
 * [Binary gap](./src/site/BinaryGap.md)
 * [CommonPrimeDivisors](./src/site/CommonPrimeDivisors.md)
@@ -26,7 +26,7 @@ Follow these markdowns for the problems description
 * [Odd occurrences in array](./src/site/OddOccurrencesInArray.md)
 * [PermMissingElem](./src/site/PermMissingElem.md)
 
-Sometimes I provide more than one solution, the easy one and the smarter & faster, the `@Silly` annotation marks the easy algorithm.
+Sometimes I provide more than one solution, the easy one and the faster one, the `@Silly` annotation marks the easy algorithms.
 
 ## 💾 Installation
 
