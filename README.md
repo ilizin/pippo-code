@@ -41,7 +41,7 @@ OpenJDK 64-Bit Server VM (build 17+35-2724, mixed mode, sharing)
 ilizin:~$ 
 ```
 
-* Maven
+* Maven, any version is fine, but find the right JDK compatibility at the [Maven Releases History](https://maven.apache.org/docs/history.html) page
 ```
 ilizin:~$ mvn -version
 Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
@@ -57,7 +57,7 @@ ilizin:~$
 git clone git@github.com:ilizin/pippo-code.git
 ```
 
-* Move to the repo folder.
+* Move to the *pippo-code* folder.
 ```
 ilizin@ilizin:~/repos$ cd pippo-code
 ilizin@ilizin:~/repos/pippo-code$
