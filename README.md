@@ -1,13 +1,13 @@
 # pippo-code
 
+<img align="right" width="182" src="goofy.png">
+
 I think it's important to keep problem-solving skills alive, I pay special attention to solve coding exercises regularly during my free time.
 The repository contains my solutions to several programming problems, each solution is implemented in Java and encapsulated in a class.
 I provided comments and aimed to keep code clean and readable and always find an efficient solution in terms of computational time and memory space.
 This repository also serves as a learning resource for me and for anyone who is interested in understanding different ways to solve coding problems.
 
 Anyway *pippo* is the italian translation of the [*disney character Goofy*](https://en.wikipedia.org/wiki/Goofy)
-
-![image](goofy.png)
 
 ## 📘 Description
 
