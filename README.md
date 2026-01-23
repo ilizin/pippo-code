@@ -3,8 +3,8 @@
 <img align="right" width="182" src="goofy.png">
 
 I think it's important to keep problem-solving skills alive, I pay special attention to solve coding exercises regularly during my free time.
-The repository contains my solutions to several programming problems, each solution is implemented in Java and encapsulated in a class.
-I provided comments and aimed to keep code clean and readable and always find an efficient solution in terms of computational time and memory space.
+This repository contains my solutions to several programming problems, each solution is implemented in Java and encapsulated in a class.
+I provide a lot of comments and aim to keep the code clean, readable and find efficient solutions in terms of computational time and memory space.
 This repository also serves as a learning resource for me and for anyone who is interested in understanding different ways to solve coding problems.
 
 Anyway *pippo* is the italian translation of the [*disney character Goofy*](https://en.wikipedia.org/wiki/Goofy)
@@ -24,7 +24,7 @@ Follow these markdowns for the problems description
 * [Odd occurrences in array](./src/site/OddOccurrencesInArray.md)
 * [PermMissingElem](./src/site/PermMissingElem.md)
 
-Sometimes I provide more than one solution, the easy one and the smarter/faster, the `@Silly` annotation marks the method that implement the easy algorithm.
+Sometimes I provide more than one solution, the easy one and the smarter & faster, the `@Silly` annotation marks the easy algorithm.
 
 ## 💾 Installation
 
