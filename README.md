@@ -137,4 +137,4 @@ GitHub: [ilizin](https://github.com/ilizin)
 
 ## 🙌 Acknowledgments
 
-Thank you to Codility for providing a platform to practice coding problems.
+Thank you to [Codility](https://app.codility.com/programmers/) for providing a platform to practice coding problems.
