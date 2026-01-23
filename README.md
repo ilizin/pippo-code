@@ -41,7 +41,7 @@ OpenJDK 64-Bit Server VM (build 17+35-2724, mixed mode, sharing)
 ilizin:~$ 
 ```
 
-* Maven, any version is fine, but find the right JDK compatibility at the [Maven Releases History](https://maven.apache.org/docs/history.html) page
+* Maven, any version is fine, but find the right JDK compatibility at the [Maven Releases History](https://maven.apache.org/docs/history.html) page.
 ```
 ilizin:~$ mvn -version
 Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
@@ -94,7 +94,7 @@ ilizin@ilizin:~/repos/pippo-code$
 
 ## 📂 Structure 
 
-Each problem solution is stored in its own class within the `me.ilizin.coding` package, has a junit and a markdown containing the problem description.
+Each problem solution is encapsulated in its own class within the `me.ilizin.coding` package, it has a junit and a markdown that contains the problem description.
 
 ```
 /
@@ -102,15 +102,15 @@ Each problem solution is stored in its own class within the `me.ilizin.coding` p
     ├── main
     │   └── java
     │       └── me.ilizin.coding
-    │           ├── BinaryGap
+    │           ├── BinaryGap.java
     │           └── ...
     ├── site
-    │   ├── BinaryGap
+    │   ├── BinaryGap.md
     │   └── ...
     └── test
         └── java
             └── me.ilizin.coding
-                ├── BinaryGap
+                ├── BinaryGapTest.java
                 └── ...
 ```
 
